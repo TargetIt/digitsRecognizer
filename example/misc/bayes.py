@@ -1,8 +1,11 @@
+from numpy import *
+import time
 def csv2vector(filename,index=0):
     fr = open(filename)
     filelines = fr.readlines()
     del filelines[0]
     lenlines = len(filelines)
+    print zeros(4)
     returnVect = zeros((lenlines,784))
     labellist = [0]*lenlines
     for i in range(lenlines):
@@ -65,6 +68,6 @@ def testNB():
         tmp = classifyNB(testSet[i],pvecdic,pDic)
         result += str(i+1)+","+tmp+"\n"
         #print tmp
-    savefile(result,"result_NB.csv")
+    #savefile(result,"result_NB.csv")
     end = time.clock()
     print "time cost: %f s" % (end - start)
